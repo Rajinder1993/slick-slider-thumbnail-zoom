@@ -138,3 +138,32 @@ galleryActiveClass:"zoomGalleryActive",imageCrossfade:!1,constrainType:!1,constr
     });
 
  // ********************************************** Slick slider init() Product Page **********************************************
+
+
+====================== call this function in callback =============
+	 if (newVariant.featured_image == null) {
+                  var image_src =
+                    "https://cdn.shopify.com/s/files/1/0582/2755/6543/files/no_image.jpg?v=1629879915";
+                } else {
+                  var image_src = newVariant.featured_image.src;
+                  //  console.log(image_src);
+                  var split_http = image_src.split("https:");
+                  //console.log(split_http[1]);
+                  var image = split_http[1];
+                  // console.log(image);
+                  $(".gallery_images .gallery-img img").each(function () {
+                    var inside_image = $(this).attr("src");
+                    // console.log(inside_image);
+                    if (image == inside_image) {
+                      var index = $(this)
+                        .parents(".gallery-img")
+                        .attr("data-slick-index");
+                      //  console.log(index);
+                      $(this).trigger("click");
+                      //  $('.gallery_images').slick('slickGoTo', index);
+                    } else {
+                      //             console.log('hi');
+                      //  console.log('not matched');
+                    }
+                  });
+                }
