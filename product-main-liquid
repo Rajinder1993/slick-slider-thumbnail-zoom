@@ -1,0 +1,27 @@
+	{%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    PRODUCT IMAGES SLIDER
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+
+    <div class="product__images">
+     {% for image in product.images %}
+      <div class="gallery-img"> 
+        <img class="elevate-zoom" src="{{ image.src | product_img_url: '500x500' }}" data-zoom-image="{{ image.src | product_img_url: '2048x2048' }}" alt="{{image.alt}}">
+      </div>
+      {% endfor %}
+    </div>
+    
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    PRODUCT GALLERY
+    --------------------------------------------------------------------------------------------------------------------
+
+    <div class="gallery_images">
+      {% for image in product.images %}
+      <div class="gallery-img"> 
+        <img src="{{ image.src | product_img_url: 'master' }}" alt="{{image.alt}}">
+      </div>
+      {% endfor %}
+    </div>
